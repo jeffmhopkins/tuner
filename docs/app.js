@@ -37,6 +37,8 @@ Application.prototype.start = function () {
     self.tuner.init();
     self.frequencyData = new Uint8Array(self.tuner.analyser.frequencyBinCount);
     self.updateFrequencyBars();
+    self.frequencyBars.resize();
+    self.frequencyBars.canvasContext.clearRect(0, 0, self.frequencyBars.$canvas.width, self.frequencyBars.$canvas.height);
   });
   this.$a4.addEventListener("click", function () {
     swal
