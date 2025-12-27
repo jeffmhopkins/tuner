@@ -1,4 +1,4 @@
-# Ad free audio tuner for Desktop and Phone!
+# Audio Tuning App - Ad Free - Installs to Phone / Desktop / Web!
 * live deployed here: [https://jeffmhopkins.github.io/tuner/](https://jeffmhopkins.github.io/tuner/).
 
 # Modifications from Original Project
