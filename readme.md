@@ -1,5 +1,7 @@
-# Audio Tuning App - Ad Free - Installs to Phone / Desktop / Web!
-* live deployed here: [https://jeffmhopkins.github.io/tuner/](https://jeffmhopkins.github.io/tuner/).
+# Audio Tuning App
+* Ad Free
+* Installs to Phone / Desktop / Web
+* Live deployed here: [https://jeffmhopkins.github.io/tuner/](https://jeffmhopkins.github.io/tuner/).
 
 # Modifications from Original Project
 * PWA -> Install as a progressive web app to phone/desktop (see https://en.wikipedia.org/wiki/Progressive_web_app)
