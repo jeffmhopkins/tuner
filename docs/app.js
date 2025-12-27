@@ -37,9 +37,10 @@ Application.prototype.start = function () {
     self.tuner.init();
     self.frequencyData = new Uint8Array(self.tuner.analyser.frequencyBinCount);
     self.updateFrequencyBars();
-    self.frequencyBars.resize();  // Ensure latest size post-layout/mic grant
-    self.tuner.analyser.getByteFrequencyData(self.frequencyData);  // Get current (even silent) data
-    self.frequencyBars.update(self.frequencyData); 
+    setTimeout(() => {
+      self.frequencyBars.resize();  // Direct call
+      window.dispatchEvent(new Event('resize'));  // Triggers your listener which also updates data
+    }, 150);
   });
   this.$a4.addEventListener("click", function () {
     swal
