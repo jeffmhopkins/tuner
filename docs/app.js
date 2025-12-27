@@ -34,6 +34,7 @@ Application.prototype.start = function () {
 
   self.tuner.init();
   self.frequencyData = new Uint8Array(self.tuner.analyser.frequencyBinCount);
+  this.notes.createNotes();
 
   this.$a4.addEventListener("click", function () {
     swal
