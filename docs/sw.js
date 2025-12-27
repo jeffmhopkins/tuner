@@ -1,19 +1,19 @@
 const CACHE_NAME = 'tuner-v1';
 const FILES_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/styles.css',
-  '/app.js', 
-  '/frequency-bars.js', 
-  '/meter.js',
-  '/notes.js', 
-  '/tuner.js', 
-  '/sw.js',
+  '/tuner/',                  // Base path
+  '/tuner/index.html',
+  '/tuner/styles.css',
+  '/tuner/app.js',
+  '/tuner/frequency-bars.js',
+  '/tuner/meter.js',
+  '/tuner/notes.js',
+  '/tuner/tuner.js',
+  '/tuner/sw.js',
+  '/tuner/manifest.json',
+  '/tuner/icon-192.png',
+  '/tuner/icon-512.png',
   'https://cdn.jsdelivr.net/npm/aubiojs@0.1.1/build/aubio.min.js',
-  'https://cdn.jsdelivr.net/npm/sweetalert2@9',
-  '/manifest.json',
-  '/icon-192.png',
-  '/icon-512.png'
+  'https://cdn.jsdelivr.net/npm/sweetalert2@9'
 ];
 
 self.addEventListener('install', event => {
