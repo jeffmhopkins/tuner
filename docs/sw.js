@@ -2,7 +2,7 @@ const CACHE_NAME = 'tuner-v2';
 const FILES_TO_CACHE = [
   '/tuner/',                  // Base path
   '/tuner/index.html',
-  '/tuner/styles.css',
+  '/tuner/style.css',
   '/tuner/app.js',
   '/tuner/frequency-bars.js',
   '/tuner/meter.js',
