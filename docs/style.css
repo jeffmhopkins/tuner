@@ -150,8 +150,8 @@ body {
 }
 
 .swal-button {
-  background: #2c3e50;       /* Kept original – it's already dark enough */
-  color: #ffffff;            /* Ensure text is readable */
+  background: #2c3e50;
+  color: #ffffff;
 }
 
 .a4 {
@@ -168,4 +168,12 @@ body {
   position: absolute;
   top: 16px;
   right: 16px;
+}
+
+.note.in-tune {
+  color: #2ecc71 !important;
+}
+
+.note.in-tune {
+  text-shadow: 0 0 15px #2ecc71;
 }
