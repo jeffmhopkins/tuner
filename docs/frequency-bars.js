@@ -28,3 +28,9 @@ FrequencyBars.prototype.update = function (data) {
     );
   }
 };
+
+FrequencyBars.prototype.resize = function () {
+  this.$canvas.width = document.body.clientWidth;
+  this.$canvas.height = document.body.clientHeight / 2;
+  this.canvasContext.clearRect(0, 0, this.$canvas.width, this.$canvas.height);
+};
