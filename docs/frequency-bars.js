@@ -15,6 +15,7 @@ FrequencyBars.prototype.resize = function () {
   this.$canvas.height = document.body.clientHeight / 2;
   this.canvasContext.fillStyle = "#000";  // or "#1a1a1a" for dark bg
   this.canvasContext.fillRect(0, 0, this.$canvas.width, this.$canvas.height);
+  this.canvasContext.fillStyle = "#34495e";
 };
 
 FrequencyBars.prototype.update = function (data) {
