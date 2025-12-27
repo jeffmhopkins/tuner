@@ -5,7 +5,7 @@
  * @constructor
  */
 const FrequencyBars = function (selector) {
-  this.$canvas = document.querySelector(s
+  this.$canvas = document.querySelector(selector);
   this.resize();
   this.canvasContext = this.$canvas.getContext("2d");
 };
