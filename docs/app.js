@@ -4,6 +4,7 @@ const Application = function () {
   this.notes = new Notes(".notes", this.tuner);
   this.meter = new Meter(".meter");
   this.frequencyBars = new FrequencyBars(".frequency-bars");
+  this.lastNote = null; 
   this.update({
     name: "A",
     frequency: this.a4,
@@ -21,7 +22,6 @@ Application.prototype.initA4 = function () {
 
 Application.prototype.start = function () {
   const self = this;
-
   this.tuner.onNoteDetected = function (note) {
     if (self.notes.isAutoMode) {
       if (self.lastNote === note.name) {
@@ -29,21 +29,20 @@ Application.prototype.start = function () {
       } else {
         self.lastNote = note.name;
       }
+    } else {
+      self.update(note);
     }
   };
-
   swal.fire("Enabling microphone access for PWA Tuner!").then(function () {
     self.tuner.init();
     self.frequencyData = new Uint8Array(self.tuner.analyser.frequencyBinCount);
+    self.updateFrequencyBars();
   });
-
   this.$a4.addEventListener("click", function () {
     swal
       .fire({ input: "number", inputValue: self.a4 })
       .then(function ({ value: a4 }) {
-        if (!parseInt(a4) || a4 === self.a4) {
-          return;
-        }
+        if (!parseInt(a4) || a4 === self.a4) return;
         self.a4 = a4;
         self.$a4.innerHTML = a4;
         self.tuner.middleA = a4;
@@ -58,16 +57,21 @@ Application.prototype.start = function () {
         localStorage.setItem("a4", a4);
       });
   });
-
-  this.updateFrequencyBars();
-
+  this.frequencyBars.resize();
+  window.addEventListener('resize', () => {
+    this.frequencyBars.resize();
+    if (this.tuner && this.tuner.analyser) {
+      this.tuner.analyser.getByteFrequencyData(this.frequencyData);
+      this.frequencyBars.update(this.frequencyData);
+    }
+  });
   document.querySelector(".auto input").addEventListener("change", () => {
     this.notes.toggleAutoMode();
   });
 };
 
 Application.prototype.updateFrequencyBars = function () {
-  if (this.tuner.analyser) {
+  if (this.tuner && this.tuner.analyser) {
     this.tuner.analyser.getByteFrequencyData(this.frequencyData);
     this.frequencyBars.update(this.frequencyData);
   }
