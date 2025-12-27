@@ -77,12 +77,16 @@ Application.prototype.updateFrequencyBars = function () {
 Application.prototype.update = function (note) {
   const absCents = Math.abs(note.cents);
   this.notes.update(note);
-  if (absCents <= 5 && note.value in this.notes.$notesMap) {
-    const $currentNote = this.notes.$notesMap[note.value];
-    $currentNote.classList.remove('active');
-    $currentNote.classList.add('in-tune');
+  const $currentNote = this.notes.$notesMap[note.value];
+  if ($currentNote) {
+    if (absCents <= 5) {
+      $currentNote.classList.remove('active');
+      $currentNote.classList.add('in-tune');
+    } else {
+      $currentNote.classList.remove('in-tune');
+      $currentNote.classList.add('active');
+    }
   }
-
   this.meter.update((note.cents / 50) * 45);
 };
 
