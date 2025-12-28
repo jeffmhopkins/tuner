@@ -147,6 +147,7 @@ Tuner.prototype.getCents = function (frequency, note) {
 Tuner.prototype.play = function (frequency) {
   if (!this.oscillator) {
     this.oscillator = this.audioContext.createOscillator();
+this.oscillator.type = 'square';
     this.oscillator.connect(this.audioContext.destination);
     this.oscillator.start();
   }
