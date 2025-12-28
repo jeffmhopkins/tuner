@@ -7,6 +7,7 @@
 * PWA -> Install as a progressive web app to phone/desktop (see https://en.wikipedia.org/wiki/Progressive_web_app)
 * Darkmode Default
 * Green hightlight of note if within 5 cents
+* Manual move oscillator changed from sine to square wave
 
 # PWA Install Instructions
 * Android -> Open link in Chrome, click menu, 'Add to Home Screen"
